@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Prose from '../components/Prose.astro';
+---
+
+<Layout title="Terms of Service" description="FormVault's terms of service: license, your responsibility for your data, warranty, and liability.">
+	<Hero eyebrow="Legal" title="Terms of Service" lead="Last updated: placeholder date." />
+
+	<Prose>
+		<div class="mb-6 rounded-md border border-border bg-surface px-4 py-3 text-xs text-subtle">
+			Draft placeholder. Boilerplate text intended as a starting point only. Have a lawyer review before shipping.
+		</div>
+		<p>By downloading, installing, or using FormVault (&ldquo;the Software&rdquo;) you agree to the following terms.</p>
+		<h2>License</h2>
+		<p>
+			We grant you a personal, non-exclusive, non-transferable license to install and use the Software on devices you own or control,
+			subject to these terms.
+		</p>
+		<h2>Your data</h2>
+		<p>
+			The Software stores data locally on your device. You are solely responsible for the contents of your vault, for keeping backups, and
+			for the security of the device the vault is stored on.
+		</p>
+		<h2>No warranty</h2>
+		<p>
+			The Software is provided &ldquo;as is&rdquo;, without warranties of any kind, express or implied. To the maximum extent permitted by
+			law, we disclaim all warranties, including merchantability, fitness for a particular purpose, and non-infringement.
+		</p>
+		<h2>Limitation of liability</h2>
+		<p>
+			To the extent permitted by law, we shall not be liable for any indirect, incidental, special, consequential, or punitive damages
+			arising out of your use of, or inability to use, the Software.
+		</p>
+		<h2>Changes</h2>
+		<p>We may update these terms from time to time. Material changes will be reflected in the &ldquo;last updated&rdquo; date above.</p>
+		<h2>Contact</h2>
+		<p>Questions about these terms: legal@formvault.example (placeholder).</p>
+	</Prose>
+</Layout>

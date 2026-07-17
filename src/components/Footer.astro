@@ -1,0 +1,68 @@
+---
+import Logo from './Logo.astro';
+
+interface LinkItem {
+	to: string;
+	label: string;
+}
+
+const columns: { title: string; items: LinkItem[] }[] = [
+	{
+		title: 'Product',
+		items: [
+			{ to: '/features', label: 'Features' },
+			{ to: '/download', label: 'Download' },
+			{ to: '/pricing', label: 'Pricing' }
+		]
+	},
+	{
+		title: 'Support',
+		items: [{ to: '/faq', label: 'FAQ' }]
+	},
+	{
+		title: 'Legal',
+		items: [
+			{ to: '/privacy', label: 'Privacy' },
+			{ to: '/terms', label: 'Terms' }
+		]
+	}
+];
+
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-32 border-t border-border/60">
+	<div class="mx-auto grid max-w-6xl grid-cols-2 gap-10 px-6 py-14 md:grid-cols-4">
+		<div class="col-span-2 md:col-span-1">
+			<a href="/" class="flex items-center gap-2">
+				<Logo class="h-5 w-5 text-primary" />
+				<span class="text-sm font-semibold tracking-tight">FormVault</span>
+			</a>
+			<p class="mt-3 max-w-xs text-xs leading-relaxed text-muted-foreground">
+				A local-first vault for the details you type over and over. Windows only.
+			</p>
+		</div>
+		{
+			columns.map((col) => (
+				<div>
+					<div class="text-xs font-medium uppercase tracking-wider text-subtle">{col.title}</div>
+					<ul class="mt-3 space-y-2">
+						{col.items.map((item) => (
+							<li>
+								<a href={item.to} class="text-sm text-muted-foreground transition-colors hover:text-foreground">
+									{item.label}
+								</a>
+							</li>
+						))}
+					</ul>
+				</div>
+			))
+		}
+	</div>
+	<div class="border-t border-border/60">
+		<div class="mx-auto flex max-w-6xl flex-col gap-2 px-6 py-6 text-xs text-muted-foreground md:flex-row md:items-center md:justify-between">
+			<span>&copy; {year} FormVault. Local-first, always.</span>
+			<span class="text-subtle">Made for Windows 10 and later.</span>
+		</div>
+	</div>
+</footer>

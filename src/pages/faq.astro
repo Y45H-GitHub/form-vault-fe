@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Section from '../components/Section.astro';
+import Hero from '../components/Hero.astro';
+
+const faqs = [
+	{
+		q: 'Is my data sent anywhere?',
+		a: "No. Your vault is a file on your device. FormVault has no server, no account, and no telemetry that reads the contents of your vault. You can inspect the file, back it up, or delete it — it's yours."
+	},
+	{
+		q: 'Does it work outside India?',
+		a: "Yes. The core product — a hotkey vault for repeated details — is not India-specific. The built-in categories just happen to include common Indian fields (PAN, Aadhaar, GST, UPI, IFSC) because that's where the friction is worst. You can rename, remove, or add any fields you like, so a UK VAT number or a US SSN works just as well."
+	},
+	{
+		q: 'What happens if I lose my computer?',
+		a: "Because storage is local, we can't recover a vault we never had. FormVault includes JSON export and import so you can keep your own encrypted backup wherever you want — a personal cloud drive, an external disk, a password manager attachment. Set a reminder to export regularly."
+	},
+	{
+		q: 'Which versions of Windows are supported?',
+		a: "Windows 10 (build 1809) and later, on 64-bit processors. Windows 11 is fully supported. We don't currently support Windows 7, Windows 8, ARM64 devices, macOS, or Linux."
+	},
+	{
+		q: 'How does the auto-paste work?',
+		a: 'When a text field is focused, FormVault copies the selected value and simulates a paste. In apps that block simulated paste, the value stays on the clipboard so you can paste it manually. Nothing about the destination app is logged.'
+	},
+	{
+		q: 'Can I use FormVault with a password manager?',
+		a: 'Yes. FormVault is meant for structured personal and financial details, not passwords. Keep passwords in a password manager and everything else — PAN, Aadhaar, bank details, addresses — in FormVault.'
+	}
+];
+---
+
+<Layout title="FAQ" description="Straight answers about local storage, Windows support, auto-paste, and using FormVault alongside a password manager.">
+	<Hero eyebrow="FAQ" title="Straight answers." lead="If your question isn't here, the answer is probably in Features. If it isn't there either, email us." />
+
+	<Section class="pb-24">
+		<div class="mx-auto max-w-3xl divide-y divide-border overflow-hidden rounded-xl border border-border bg-card">
+			{
+				faqs.map((item) => (
+					<details class="group px-6 py-5 open:bg-surface/50">
+						<summary class="flex cursor-pointer list-none items-center justify-between gap-4">
+							<span class="text-sm font-medium text-foreground">{item.q}</span>
+							<svg
+								viewBox="0 0 24 24"
+								class="h-4 w-4 shrink-0 text-subtle transition-transform group-open:rotate-45"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+							>
+								<path d="M12 5v14M5 12h14" stroke-linecap="round" />
+							</svg>
+						</summary>
+						<p class="mt-3 text-sm leading-relaxed text-muted-foreground">{item.a}</p>
+					</details>
+				))
+			}
+		</div>
+	</Section>
+</Layout>

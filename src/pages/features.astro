@@ -1,0 +1,83 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Section from '../components/Section.astro';
+import Hero from '../components/Hero.astro';
+import PopupMockup from '../components/PopupMockup.astro';
+import VaultManagerMockup from '../components/VaultManagerMockup.astro';
+
+const features = [
+	{
+		title: 'Hotkey popup',
+		body: "A single global shortcut opens a command-palette-style search anywhere in Windows. Type, arrow-key, press Enter. It's out of your way before you noticed it appear.",
+		shortcut: ['Ctrl', '⇧', 'Space']
+	},
+	{
+		title: 'Categories and profiles',
+		body: 'Group fields by Personal, Financial, Business, Documents, or your own custom category. Keep separate profiles for Personal and Business so the right details show up in the right context.'
+	},
+	{
+		title: 'Text-expansion shortcuts',
+		body: 'Type "!pan" or "!upi" in any text field and it expands to the full value inline. Works without opening the popup, in any app that accepts keystrokes.'
+	},
+	{
+		title: 'Drag to reorder',
+		body: 'Rearrange fields inside a category so the ones you use most sit at the top. Order is persisted per profile.'
+	},
+	{
+		title: 'File attachments',
+		body: 'Attach reference files — a PAN card scan, a signature image, a cancelled cheque — to the field they belong to. Reveal them from the vault when a form asks for an upload.'
+	},
+	{
+		title: 'Local-first storage',
+		body: 'Your vault is a file on your machine. Nothing is synced to a cloud server, nothing leaves your device unless you export it. JSON export and import means you own your backup.'
+	},
+	{
+		title: 'Native Windows theme',
+		body: 'Follows the system light and dark setting automatically. No separate theme to configure.'
+	}
+];
+---
+
+<Layout
+	title="Features"
+	description="Hotkey popup search, categories and profiles, text-expansion shortcuts, drag-to-reorder, file attachments, and local-first storage — everything FormVault does."
+>
+	<Hero
+		eyebrow="Features"
+		title="Small, sharp, out of your way."
+		lead="Everything FormVault does is in service of one thing: not typing the same details into a form again."
+	/>
+
+	<Section class="pb-16">
+		<div class="grid gap-6 md:grid-cols-2">
+			<div class="rounded-xl border border-border bg-card p-3">
+				<PopupMockup />
+			</div>
+			<div class="rounded-xl border border-border bg-card p-3">
+				<VaultManagerMockup />
+			</div>
+		</div>
+	</Section>
+
+	<Section>
+		<div class="grid gap-px overflow-hidden rounded-xl border border-border bg-border md:grid-cols-2">
+			{
+				features.map((f) => (
+					<div class="bg-card p-6">
+						<div class="flex items-center justify-between">
+							<h3 class="text-base font-semibold text-foreground">{f.title}</h3>
+							{f.shortcut && (
+								<div class="flex items-center gap-1">
+									{f.shortcut.map((k) => (
+										<span class="kbd">{k}</span>
+									))}
+								</div>
+							)}
+						</div>
+						<p class="mt-2 text-sm leading-relaxed text-muted-foreground">{f.body}</p>
+					</div>
+				))
+			}
+		</div>
+	</Section>
+</Layout>

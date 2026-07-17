@@ -1,0 +1,86 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Section from '../components/Section.astro';
+import Hero from '../components/Hero.astro';
+
+const freeFeatures = [
+	'Unlimited fields, categories and profiles',
+	'Global hotkey popup and text-expansion',
+	'File attachments and reveal-on-demand masking',
+	'Local JSON export and import',
+	'Follows Windows light and dark theme'
+];
+
+const proFeatures = ['Encrypted end-to-end sync across your devices', 'Shared vaults for small teams', 'Priority support'];
+---
+
+<Layout title="Pricing" description="FormVault is free during early access. A paid Pro tier with sync is planned once the shape of it is clear.">
+	<Hero
+		eyebrow="Pricing"
+		title="Free while we get it right."
+		lead="FormVault is in early access. There's one plan today. A paid tier will follow once the shape of it is clear."
+	/>
+
+	<Section class="pb-24">
+		<div class="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
+			<div class="rounded-xl border border-primary/40 bg-card p-8 ring-1 ring-primary/20">
+				<div class="flex items-center justify-between">
+					<h3 class="text-lg font-semibold">Free</h3>
+					<span class="rounded-full border border-primary/40 bg-primary/10 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-primary">
+						Available now
+					</span>
+				</div>
+				<div class="mt-4 flex items-baseline gap-1">
+					<span class="text-4xl font-semibold">&#8377;0</span>
+					<span class="text-sm text-muted-foreground">forever, for personal use</span>
+				</div>
+				<ul class="mt-6 space-y-2 text-sm text-muted-foreground">
+					{
+						freeFeatures.map((f) => (
+							<li class="flex items-start gap-2">
+								<svg viewBox="0 0 24 24" class="mt-0.5 h-4 w-4 shrink-0 text-primary" fill="none" stroke="currentColor" stroke-width="2.5">
+									<path d="m5 12 4 4 10-10" stroke-linecap="round" stroke-linejoin="round" />
+								</svg>
+								<span>{f}</span>
+							</li>
+						))
+					}
+				</ul>
+				<div class="mt-6">
+					<a
+						href="/download"
+						class="inline-flex h-10 w-full items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-hover"
+					>
+						Download for Windows
+					</a>
+				</div>
+			</div>
+
+			<div class="rounded-xl border border-dashed border-border bg-card/40 p-8">
+				<div class="flex items-center justify-between">
+					<h3 class="text-lg font-semibold text-muted-foreground">Pro</h3>
+					<span class="rounded-full border border-border bg-surface px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-subtle">
+						Planned
+					</span>
+				</div>
+				<div class="mt-4 flex items-baseline gap-1">
+					<span class="text-4xl font-semibold text-muted-foreground">&mdash;</span>
+					<span class="text-sm text-subtle">pricing to be announced</span>
+				</div>
+				<ul class="mt-6 space-y-2 text-sm text-subtle">
+					{
+						proFeatures.map((f) => (
+							<li class="flex items-start gap-2">
+								<span class="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-subtle"></span>
+								<span>{f}</span>
+							</li>
+						))
+					}
+				</ul>
+				<div class="mt-6 rounded-md border border-border bg-surface px-3 py-2 text-xs text-subtle">
+					Placeholder — not yet available. This tier is on the roadmap.
+				</div>
+			</div>
+		</div>
+	</Section>
+</Layout>

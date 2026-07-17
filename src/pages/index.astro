@@ -1,17 +1,189 @@
 ---
+import Layout from '../layouts/Layout.astro';
+import Section from '../components/Section.astro';
+import PopupMockup from '../components/PopupMockup.astro';
+import PopupArt from '../components/PopupMockup.astro';
+import VaultArt from '../components/VaultManagerMockup.astro';
+import CodeExpansionDemo from '../components/CodeExpansionDemo.astro';
 
+const highlights = [
+	{
+		title: 'One hotkey, anywhere',
+		body: 'A global shortcut opens a search popup at your cursor. Any app, any focused field, any time.'
+	},
+	{
+		title: 'Built for Indian forms',
+		body: 'PAN, Aadhaar, GST, IFSC, UPI and bank fields are first-class. Custom fields cover everything else.'
+	},
+	{
+		title: 'Local-first, always',
+		body: 'Your vault is a file on your machine. No account, no cloud, no telemetry over your data.'
+	},
+	{
+		title: 'Precise, not flashy',
+		body: 'Fast keyboard-driven UI. Masked values by default. Follows your Windows light or dark theme.'
+	}
+];
+
+const steps = [
+	{
+		n: '01',
+		title: 'Save your fields once',
+		body: 'Open the Vault Manager and add PAN, Aadhaar, GST, bank details, addresses, whatever you type often. Group them by category and profile.'
+	},
+	{
+		n: '02',
+		title: 'Press the hotkey',
+		body: 'Anywhere in Windows, hit Ctrl + Shift + Space. A search popup appears at your cursor. Start typing to filter.'
+	},
+	{
+		n: '03',
+		title: 'Paste and move on',
+		body: 'Enter copies the value and pastes into the focused field when it can. Or type a shortcut like !pan to expand inline without opening the popup.'
+	}
+];
+
+const testimonials = [
+	{ quote: '[Testimonial placeholder — replace with a real quote before launch.]', who: '[Name, role]' },
+	{ quote: '[Testimonial placeholder — replace with a real quote before launch.]', who: '[Name, role]' },
+	{ quote: '[Testimonial placeholder — replace with a real quote before launch.]', who: '[Name, role]' }
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout
+	title="FormVault — Never type your PAN or Aadhaar into a form again"
+	description="A local-first Windows tray app that autofills your PAN, Aadhaar, GST, bank and personal details with a keyboard shortcut. Stored on your device. Nothing synced."
+>
+	<section class="relative">
+		<div class="pointer-events-none absolute inset-0 grid-bg opacity-60" aria-hidden="true"></div>
+		<div class="mx-auto max-w-4xl px-6 pt-24 pb-16 text-center md:pt-32">
+			<div class="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 text-[11px] text-muted-foreground">
+				<span class="h-1.5 w-1.5 rounded-full bg-primary"></span>
+				Windows &middot; v1.0 &middot; Local-first
+			</div>
+			<h1 class="text-4xl font-semibold leading-[1.05] tracking-tight text-foreground md:text-6xl">
+				Never type your PAN or Aadhaar<br />into a form again.
+			</h1>
+			<p class="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+				FormVault is a small Windows tray app. Press a hotkey, search a field, paste. Your details stay on your device —
+				nothing is synced anywhere.
+			</p>
+			<div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+				<a
+					href="/download"
+					class="inline-flex h-10 items-center gap-2 rounded-md bg-primary px-5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-hover"
+				>
+					Download for Windows
+				</a>
+				<a
+					href="/features"
+					class="inline-flex h-10 items-center gap-2 rounded-md border border-border bg-surface px-5 text-sm font-medium text-foreground transition-colors hover:border-foreground/30"
+				>
+					See how it works
+				</a>
+			</div>
+			<div class="mt-6 flex items-center justify-center gap-2 text-xs text-subtle">
+				<span>Press</span>
+				<span class="kbd">Ctrl</span>
+				<span class="kbd">⇧</span>
+				<span class="kbd">Space</span>
+				<span>anywhere in Windows</span>
+			</div>
+		</div>
+	</section>
+
+	<Section class="pb-24">
+		<div class="relative rounded-2xl border border-border bg-card/60 p-4 md:p-10">
+			<div class="absolute inset-x-0 -top-px mx-auto h-px w-1/2 bg-gradient-to-r from-transparent via-primary/40 to-transparent"></div>
+			<div class="mx-auto max-w-2xl">
+				<PopupMockup />
+			</div>
+			<p class="mt-6 text-center text-xs text-subtle">The popup, rendered from real UI. A screen recording lives here.</p>
+		</div>
+	</Section>
+
+	<Section>
+		<div class="mb-10 flex items-end justify-between">
+			<div>
+				<div class="text-xs font-medium uppercase tracking-wider text-primary">Highlights</div>
+				<h2 class="mt-2 text-2xl font-semibold tracking-tight md:text-3xl">Fast where it matters. Quiet everywhere else.</h2>
+			</div>
+			<a href="/features" class="hidden text-sm text-muted-foreground transition-colors hover:text-foreground md:inline-flex">
+				All features &rarr;
+			</a>
+		</div>
+		<div class="grid gap-px overflow-hidden rounded-xl border border-border bg-border md:grid-cols-2 lg:grid-cols-4">
+			{
+				highlights.map((item) => (
+					<div class="bg-card p-6">
+						<h3 class="text-sm font-semibold text-foreground">{item.title}</h3>
+						<p class="mt-2 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
+					</div>
+				))
+			}
+		</div>
+	</Section>
+
+	<Section class="mt-24">
+		<div class="mb-12 max-w-2xl">
+			<div class="text-xs font-medium uppercase tracking-wider text-primary">How it works</div>
+			<h2 class="mt-2 text-2xl font-semibold tracking-tight md:text-3xl">Three steps. Then never again.</h2>
+		</div>
+		<div class="space-y-16">
+			{
+				steps.map((step, i) => (
+					<div class:list={['grid items-center gap-8 md:grid-cols-2', i % 2 === 1 ? 'md:[&>*:first-child]:order-2' : '']}>
+						<div class="rounded-xl border border-border bg-card p-4">
+							{step.n === '01' && <VaultArt />}
+							{step.n === '02' && <PopupArt />}
+							{step.n === '03' && <CodeExpansionDemo />}
+						</div>
+						<div>
+							<div class="font-mono text-xs text-primary">{step.n}</div>
+							<h3 class="mt-2 text-xl font-semibold text-foreground">{step.title}</h3>
+							<p class="mt-3 text-sm leading-relaxed text-muted-foreground">{step.body}</p>
+						</div>
+					</div>
+				))
+			}
+		</div>
+	</Section>
+
+	<Section class="mt-24">
+		<div class="mb-8 flex items-end justify-between">
+			<div>
+				<div class="text-xs font-medium uppercase tracking-wider text-primary">In use</div>
+				<h2 class="mt-2 text-2xl font-semibold tracking-tight md:text-3xl">What people say.</h2>
+			</div>
+			<span class="text-xs text-subtle">Placeholders — not real quotes.</span>
+		</div>
+		<div class="grid gap-4 md:grid-cols-3">
+			{
+				testimonials.map((t) => (
+					<blockquote class="rounded-xl border border-dashed border-border bg-card/40 p-6 text-sm text-muted-foreground">
+						<p>&ldquo;{t.quote}&rdquo;</p>
+						<footer class="mt-4 text-xs text-subtle">&mdash; {t.who}</footer>
+					</blockquote>
+				))
+			}
+		</div>
+	</Section>
+
+	<Section class="mt-24">
+		<div class="relative overflow-hidden rounded-2xl border border-border bg-card p-10 text-center md:p-14">
+			<div class="pointer-events-none absolute inset-0 grid-bg opacity-40" aria-hidden="true"></div>
+			<div class="relative">
+				<h2 class="text-2xl font-semibold tracking-tight md:text-3xl">Stop retyping. Start pasting.</h2>
+				<p class="mx-auto mt-3 max-w-lg text-sm text-muted-foreground">About 12 MB. Windows 10 or later. Free while in early access.</p>
+				<div class="mt-6">
+					<a
+						href="/download"
+						class="inline-flex h-10 items-center rounded-md bg-primary px-5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-hover"
+					>
+						Download for Windows
+					</a>
+				</div>
+			</div>
+		</div>
+	</Section>
+</Layout>

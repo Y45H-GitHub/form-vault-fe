@@ -1,0 +1,44 @@
+---
+import Logo from './Logo.astro';
+
+const navItems = [
+	{ to: '/features', label: 'Features' },
+	{ to: '/download', label: 'Download' },
+	{ to: '/pricing', label: 'Pricing' },
+	{ to: '/faq', label: 'FAQ' }
+];
+
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+
+<header class="sticky top-0 z-40 border-b border-border/60 bg-background/70 backdrop-blur-sm">
+	<div class="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
+		<a href="/" class="flex items-center gap-2 text-foreground">
+			<Logo class="h-5 w-5 text-primary" />
+			<span class="text-sm font-semibold tracking-tight">FormVault</span>
+		</a>
+		<nav class="hidden items-center gap-1 md:flex">
+			{
+				navItems.map((item) => (
+					<a
+						href={item.to}
+						class:list={[
+							'rounded-md px-3 py-1.5 text-sm transition-colors hover:text-foreground',
+							currentPath === item.to ? 'text-foreground' : 'text-muted-foreground'
+						]}
+					>
+						{item.label}
+					</a>
+				))
+			}
+		</nav>
+		<div class="flex items-center gap-2">
+			<a
+				href="/download"
+				class="inline-flex h-8 items-center rounded-md bg-primary px-3 text-xs font-medium text-primary-foreground transition-colors hover:bg-primary-hover"
+			>
+				Download
+			</a>
+		</div>
+	</div>
+</header>
