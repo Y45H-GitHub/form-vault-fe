@@ -44,16 +44,12 @@ const steps = [
 	}
 ];
 
-const testimonials = [
-	{ quote: '[Testimonial placeholder - replace with a real quote before launch.]', who: '[Name, role]' },
-	{ quote: '[Testimonial placeholder - replace with a real quote before launch.]', who: '[Name, role]' },
-	{ quote: '[Testimonial placeholder - replace with a real quote before launch.]', who: '[Name, role]' }
-];
+
 ---
 
 <Layout
-	title="FormVault - Never type your PAN or Aadhaar into a form again"
-	description="A local-first Windows tray app that autofills your PAN, Aadhaar, GST, bank and personal details with a keyboard shortcut. Stored on your device. Nothing synced."
+	title="FormVault - One shortcut for every form, in every app"
+	description="A local-first Windows tray app that fills your details anywhere - bank apps, government portals, PDFs, Excel. Faster than browser autofill. Your data never leaves your device."
 >
 	<section class="relative">
 		<div class="pointer-events-none absolute inset-0 grid-bg opacity-60" aria-hidden="true"></div>
@@ -63,11 +59,11 @@ const testimonials = [
 				Windows &middot; {RELEASE_VERSION} &middot; Local-first
 			</div>
 			<h1 class="text-4xl font-semibold leading-[1.05] tracking-tight text-foreground md:text-6xl">
-				Never type your PAN or Aadhaar<br />into a form again.
+				One shortcut.<br />Every field. Every app.
 			</h1>
 			<p class="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-				FormVault is a small Windows tray app. Press a hotkey, search a field, paste. Your details stay on your device -
-				nothing is synced anywhere.
+				FormVault fills your details anywhere in Windows - bank apps, government portals, PDFs, Excel.
+				Faster and more reliable than browser autofill. Your data never leaves your machine.
 			</p>
 			<div class="mt-8 flex flex-wrap items-center justify-center gap-3">
 				<a
@@ -145,26 +141,6 @@ const testimonials = [
 							<p class="mt-3 text-sm leading-relaxed text-muted-foreground">{step.body}</p>
 						</div>
 					</div>
-				))
-			}
-		</div>
-	</Section>
-
-	<Section class="mt-24">
-		<div class="mb-8 flex items-end justify-between">
-			<div>
-				<div class="text-xs font-medium uppercase tracking-wider text-primary">In use</div>
-				<h2 class="mt-2 text-2xl font-semibold tracking-tight md:text-3xl">What people say.</h2>
-			</div>
-			<span class="text-xs text-subtle">Placeholders - not real quotes.</span>
-		</div>
-		<div class="grid gap-4 md:grid-cols-3">
-			{
-				testimonials.map((t) => (
-					<blockquote class="rounded-xl border border-dashed border-border bg-card/40 p-6 text-sm text-muted-foreground">
-						<p>&ldquo;{t.quote}&rdquo;</p>
-						<footer class="mt-4 text-xs text-subtle">- {t.who}</footer>
-					</blockquote>
 				))
 			}
 		</div>
