@@ -2,16 +2,17 @@
 import Layout from '../layouts/Layout.astro';
 import Section from '../components/Section.astro';
 import Hero from '../components/Hero.astro';
+import { RELEASE_VERSION, RELEASE_DOWNLOAD_URL, RELEASE_SIZE_MB, MIN_WINDOWS, RELEASE_SHA256 } from '../constants/release';
 ---
 
-<Layout title="Download" description="Download FormVault for Windows. One installer, about 12 MB, no admin rights required.">
-	<Hero eyebrow="Download" title="Get FormVault for Windows." lead="One installer. About 12 MB. Runs quietly in the system tray." />
+<Layout title="Download" description={`Download FormVault for Windows. One installer, about ${RELEASE_SIZE_MB}, no admin rights required.`}>
+	<Hero eyebrow="Download" title="Get FormVault for Windows." lead={`One installer. About ${RELEASE_SIZE_MB}. Runs quietly in the system tray.`} />
 
 	<Section class="pb-16">
 		<div class="mx-auto max-w-2xl rounded-xl border border-border bg-card p-8">
 			<div class="flex flex-col items-center text-center">
 				<a
-					href="#"
+					href={RELEASE_DOWNLOAD_URL}
 					aria-label="Download FormVault installer for Windows"
 					class="inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-hover"
 				>
@@ -20,16 +21,19 @@ import Hero from '../components/Hero.astro';
 					</svg>
 					Download for Windows
 				</a>
-				<div class="mt-3 text-xs text-subtle">Version 1.0 &middot; Windows 10 or later &middot; Placeholder link</div>
+				<div class="mt-3 text-xs text-subtle">Version {RELEASE_VERSION} &middot; Windows 10 or later</div>
+				<div class="mt-2 max-w-full text-[11px] text-subtle">
+					<span class="font-medium">SHA-256:</span> <code class="break-all font-mono">{RELEASE_SHA256}</code>
+				</div>
 			</div>
 
 			<div class="mt-8 grid gap-6 border-t border-border pt-6 sm:grid-cols-2">
 				<div>
 					<div class="text-xs font-medium uppercase tracking-wider text-subtle">System requirements</div>
 					<ul class="mt-2 space-y-1 text-sm text-muted-foreground">
-						<li>Windows 10 (build 1809) or later</li>
+						<li>{MIN_WINDOWS}</li>
 						<li>64-bit processor</li>
-						<li>~50 MB free disk space</li>
+						<li>~150 MB free disk space</li>
 						<li>No admin rights required</li>
 					</ul>
 				</div>
