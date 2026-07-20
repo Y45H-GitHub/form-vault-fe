@@ -6,7 +6,7 @@ import Hero from '../components/Hero.astro';
 const faqs = [
 	{
 		q: 'Is my data sent anywhere?',
-		a: "No. Your vault is a file on your device. FormVault has no server, no account, and no telemetry that reads the contents of your vault. You can inspect the file, back it up, or delete it - it's yours."
+		a: "No. Your vault is a file on your device. Retrivo has no server, no account, and no telemetry that reads the contents of your vault - there's nothing centralized to breach, because nothing is centralized. The code is open source (MIT license) on GitHub, so you don't have to take our word for it - read the encryption code yourself, or see the full breakdown on the <a href=\"/security\" class=\"underline underline-offset-4 hover:text-foreground\">Security page</a>."
 	},
 	{
 		q: 'Does it work outside India?',
@@ -14,7 +14,7 @@ const faqs = [
 	},
 	{
 		q: 'What happens if I lose my computer?',
-		a: "Because storage is local, we can't recover a vault we never had. FormVault includes JSON export and import so you can keep your own encrypted backup wherever you want - a personal cloud drive, an external disk, a password manager attachment. Set a reminder to export regularly."
+		a: "Because storage is local, we can't recover a vault we never had. Retrivo includes JSON export and import so you can keep your own encrypted backup wherever you want - a personal cloud drive, an external disk, a password manager attachment. Set a reminder to export regularly."
 	},
 	{
 		q: 'Which versions of Windows are supported?',
@@ -22,16 +22,16 @@ const faqs = [
 	},
 	{
 		q: 'How does the auto-paste work?',
-		a: 'When a text field is focused, FormVault copies the selected value and simulates a paste. In apps that block simulated paste, the value stays on the clipboard so you can paste it manually. Nothing about the destination app is logged.'
+		a: 'When a text field is focused, Retrivo copies the selected value and simulates a paste. In apps that block simulated paste, the value stays on the clipboard so you can paste it manually. Nothing about the destination app is logged.'
 	},
 	{
-		q: 'Can I use FormVault with a password manager?',
-		a: 'Yes. FormVault is meant for structured personal and financial details, not passwords. Keep passwords in a password manager and everything else - PAN, Aadhaar, bank details, addresses - in FormVault.'
+		q: 'Can I use Retrivo with a password manager?',
+		a: 'Yes. Retrivo is meant for structured personal and financial details, not passwords. Keep passwords in a password manager and everything else - PAN, Aadhaar, bank details, addresses - in Retrivo.'
 	}
 ];
 ---
 
-<Layout title="FAQ" description="Straight answers about local storage, Windows support, auto-paste, and using FormVault alongside a password manager.">
+<Layout title="FAQ" description="Straight answers about local storage, Windows support, auto-paste, and using Retrivo alongside a password manager.">
 	<Hero eyebrow="FAQ" title="Straight answers." lead="If your question isn't here, the answer is probably in Features. If it isn't there either, email us." />
 
 	<Section class="pb-24">
@@ -51,7 +51,7 @@ const faqs = [
 								<path d="M12 5v14M5 12h14" stroke-linecap="round" />
 							</svg>
 						</summary>
-						<p class="mt-3 text-sm leading-relaxed text-muted-foreground">{item.a}</p>
+						<p class="mt-3 text-sm leading-relaxed text-muted-foreground" set:html={item.a} />
 					</details>
 				))
 			}

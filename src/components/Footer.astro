@@ -17,7 +17,10 @@ const columns: { title: string; items: LinkItem[] }[] = [
 	},
 	{
 		title: 'Support',
-		items: [{ to: '/faq', label: 'FAQ' }]
+		items: [
+			{ to: '/security', label: 'Security' },
+			{ to: '/faq', label: 'FAQ' }
+		]
 	},
 	{
 		title: 'Legal',
@@ -36,10 +39,10 @@ const year = new Date().getFullYear();
 		<div class="col-span-2 md:col-span-1">
 			<a href="/" class="flex items-center gap-2">
 				<Logo class="h-5 w-5 text-primary" />
-				<span class="text-sm font-semibold tracking-tight">FormVault</span>
+				<span class="text-sm font-semibold tracking-tight">Retrivo</span>
 			</a>
 			<p class="mt-3 max-w-xs text-xs leading-relaxed text-muted-foreground">
-				A local-first vault for the details you type over and over. Windows only.
+				A local-first, open-source vault for the details you type over and over. Windows only.
 			</p>
 		</div>
 		{
@@ -61,7 +64,7 @@ const year = new Date().getFullYear();
 	</div>
 	<div class="border-t border-border/60">
 		<div class="mx-auto flex max-w-6xl flex-col gap-2 px-6 py-6 text-xs text-muted-foreground md:flex-row md:items-center md:justify-between">
-			<span>&copy; {year} FormVault. Local-first, always.</span>
+			<span>&copy; {year} Retrivo. Local-first, always.</span>
 			<span class="text-subtle">Made for Windows 10 and later.</span>
 		</div>
 	</div>

@@ -5,15 +5,15 @@ import Hero from '../components/Hero.astro';
 import { RELEASE_VERSION, RELEASE_DOWNLOAD_URL, RELEASE_SIZE_MB, MIN_WINDOWS, RELEASE_SHA256 } from '../constants/release';
 ---
 
-<Layout title="Download" description={`Download FormVault for Windows. One installer, about ${RELEASE_SIZE_MB}, no admin rights required.`}>
-	<Hero eyebrow="Download" title="Get FormVault for Windows." lead={`One installer. About ${RELEASE_SIZE_MB}. Runs quietly in the system tray.`} />
+<Layout title="Download" description={`Download Retrivo for Windows. One installer, about ${RELEASE_SIZE_MB}, no admin rights required.`}>
+	<Hero eyebrow="Download" title="Get Retrivo for Windows." lead={`One installer. About ${RELEASE_SIZE_MB}. Runs quietly in the system tray.`} />
 
 	<Section class="pb-16">
 		<div class="mx-auto max-w-2xl rounded-xl border border-border bg-card p-8">
 			<div class="flex flex-col items-center text-center">
 				<a
 					href={RELEASE_DOWNLOAD_URL}
-					aria-label="Download FormVault installer for Windows"
+					aria-label="Download Retrivo installer for Windows"
 					class="inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-hover"
 				>
 					<svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor" aria-hidden="true">
@@ -42,7 +42,7 @@ import { RELEASE_VERSION, RELEASE_DOWNLOAD_URL, RELEASE_SIZE_MB, MIN_WINDOWS, RE
 					<ol class="mt-2 space-y-1 text-sm text-muted-foreground">
 						<li>1. Download and run the installer.</li>
 						<li>2. Pick a location; approve the SmartScreen prompt.</li>
-						<li>3. FormVault docks in the system tray. Press the hotkey.</li>
+						<li>3. Retrivo docks in the system tray. Press the hotkey.</li>
 					</ol>
 				</div>
 			</div>

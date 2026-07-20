@@ -1,0 +1,61 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Section from '../components/Section.astro';
+import Hero from '../components/Hero.astro';
+
+const points = [
+	{
+		title: 'There is no server.',
+		body: "Retrivo has no backend, no account system, and no sync infrastructure. Your vault is a single file on your own machine. There is nothing to breach centrally, because there is nothing centralized - we can't leak what we never received."
+	},
+	{
+		title: 'Encrypted with your Windows account, not a hardcoded key.',
+		body: 'Field values are encrypted at rest using safeStorage, Electron’s wrapper around your OS credential store - DPAPI on Windows. The key is scoped to your machine and your Windows account, and it never lives inside the app itself.'
+	},
+	{
+		title: 'Open source. Inspect it, don’t just trust it.',
+		body: 'The full source is on GitHub under the MIT license. Read the encryption code, watch the network traffic yourself, or disconnect your wifi entirely - Retrivo works exactly the same offline, because it was never talking to anything.'
+	},
+	{
+		title: 'You own your backup.',
+		body: 'JSON export and import are built in, protected by a passphrase you choose. Nothing is uploaded anywhere as part of that process - the file goes wherever you decide to put it.'
+	},
+	{
+		title: 'Safer than browser autofill against a real, current threat.',
+		body: 'Browser autofill can be tricked by "formjacking" - a malicious page with hidden fields that silently harvest whatever your browser is willing to fill in. Retrivo never fills anything automatically. It only pastes a value when you explicitly search for it and press Enter.'
+	}
+];
+---
+
+<Layout
+	title="Security"
+	description="How Retrivo protects your data: no server, OS-level encryption, open-source code you can inspect, and full ownership of your own backups."
+>
+	<Hero
+		eyebrow="Security"
+		title="How your data is protected."
+		lead="Don't take our word for it. Here's exactly where your data lives and why there's nothing to steal centrally."
+	/>
+
+	<Section class="pb-24">
+		<div class="mx-auto max-w-2xl space-y-10">
+			{
+				points.map((p) => (
+					<div class="rounded-xl border border-border bg-card p-6">
+						<h3 class="text-base font-semibold text-foreground">{p.title}</h3>
+						<p class="mt-2 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
+					</div>
+				))
+			}
+		</div>
+
+		<div class="mx-auto mt-10 max-w-2xl text-center">
+			<a
+				href="https://github.com/Y45H-GitHub/retrivo"
+				class="inline-flex h-10 items-center gap-2 rounded-md border border-border bg-surface px-5 text-sm font-medium text-foreground transition-colors hover:border-foreground/30"
+			>
+				Read the source on GitHub
+			</a>
+		</div>
+	</Section>
+</Layout>

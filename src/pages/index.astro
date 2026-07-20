@@ -48,7 +48,7 @@ const steps = [
 ---
 
 <Layout
-	title="FormVault - One shortcut for every form, in every app"
+	title="Retrivo - One shortcut for every form, in every app"
 	description="A local-first Windows tray app that fills your details anywhere - bank apps, government portals, PDFs, Excel. Faster than browser autofill. Your data never leaves your device."
 >
 	<section class="relative">
@@ -56,14 +56,15 @@ const steps = [
 		<div class="mx-auto max-w-4xl px-6 pt-24 pb-16 text-center md:pt-32">
 			<div class="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 text-[11px] text-muted-foreground">
 				<span class="h-1.5 w-1.5 rounded-full bg-primary"></span>
-				Windows &middot; {RELEASE_VERSION} &middot; Local-first
+				Windows &middot; {RELEASE_VERSION} &middot; Local-first &middot; Open source
 			</div>
 			<h1 class="text-4xl font-semibold leading-[1.05] tracking-tight text-foreground md:text-6xl">
 				One shortcut.<br />Every field. Every app.
 			</h1>
 			<p class="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-				FormVault fills your details anywhere in Windows - bank apps, government portals, PDFs, Excel.
-				Faster and more reliable than browser autofill. Your data never leaves your machine.
+				There's no server - your details live only on this machine, encrypted with your Windows account.
+				Retrivo fills them anywhere in Windows - bank apps, government portals, PDFs, Excel - faster and
+				more reliably than browser autofill.
 			</p>
 			<div class="mt-8 flex flex-wrap items-center justify-center gap-3">
 				<a
@@ -77,6 +78,11 @@ const steps = [
 					class="inline-flex h-10 items-center gap-2 rounded-md border border-border bg-surface px-5 text-sm font-medium text-foreground transition-colors hover:border-foreground/30"
 				>
 					See how it works
+				</a>
+			</div>
+			<div class="mt-4">
+				<a href="/security" class="text-xs text-muted-foreground underline-offset-4 hover:text-foreground hover:underline">
+					See exactly how your data is protected &rarr;
 				</a>
 			</div>
 			<div class="mt-6 flex items-center justify-center gap-2 text-xs text-subtle">

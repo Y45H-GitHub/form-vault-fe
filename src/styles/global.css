@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 /*
- * FormVault marketing site tokens — mirrors the desktop app's own design
- * system (see form-vault/src/shared/globals.css) so the site and product
+ * Retrivo marketing site tokens — mirrors the desktop app's own design
+ * system (see retrivo/src/shared/globals.css) so the site and product
  * feel like the same brand. Dark is the primary/default theme (matches the
  * "dark-luxury minimalism" product aesthetic); light tokens are defined for
  * completeness but the site ships dark-only today (html.dark is set

@@ -3,6 +3,7 @@ import Logo from './Logo.astro';
 
 const navItems = [
 	{ to: '/features', label: 'Features' },
+	{ to: '/security', label: 'Security' },
 	{ to: '/download', label: 'Download' },
 	{ to: '/pricing', label: 'Pricing' },
 	{ to: '/faq', label: 'FAQ' }
@@ -15,7 +16,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 	<div class="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
 		<a href="/" class="flex items-center gap-2 text-foreground">
 			<Logo class="h-5 w-5 text-primary" />
-			<span class="text-sm font-semibold tracking-tight">FormVault</span>
+			<span class="text-sm font-semibold tracking-tight">Retrivo</span>
 		</a>
 		<nav class="hidden items-center gap-1 md:flex">
 			{
