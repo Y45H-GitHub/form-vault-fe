@@ -2,7 +2,19 @@
 import Layout from '../layouts/Layout.astro';
 import Section from '../components/Section.astro';
 import Hero from '../components/Hero.astro';
-import { RELEASE_VERSION, RELEASE_DOWNLOAD_URL, RELEASE_SIZE_MB, MIN_WINDOWS, RELEASE_SHA256 } from '../constants/release';
+import {
+	RELEASE_VERSION,
+	RELEASE_DOWNLOAD_URL,
+	RELEASE_SIZE_MB,
+	MIN_WINDOWS,
+	RELEASE_SHA256,
+	GITHUB_OWNER,
+	GITHUB_REPO,
+	MIN_DOWNLOADS_TO_SHOW
+} from '../constants/release';
+import { getInstallerDownloadCount } from '../lib/githubDownloads';
+
+const downloadCount = await getInstallerDownloadCount(GITHUB_OWNER, GITHUB_REPO);
 ---
 
 <Layout title="Download" description={`Download Retrivo for Windows. One installer, about ${RELEASE_SIZE_MB}, no admin rights required.`}>
@@ -22,6 +34,11 @@ import { RELEASE_VERSION, RELEASE_DOWNLOAD_URL, RELEASE_SIZE_MB, MIN_WINDOWS, RE
 					Download for Windows
 				</a>
 				<div class="mt-3 text-xs text-subtle">Version {RELEASE_VERSION} &middot; Windows 10 or later</div>
+				{
+					downloadCount !== null && downloadCount >= MIN_DOWNLOADS_TO_SHOW && (
+						<div class="mt-1 text-xs text-subtle">{downloadCount.toLocaleString()} downloads so far</div>
+					)
+				}
 				<div class="mt-2 max-w-full text-[11px] text-subtle">
 					<span class="font-medium">SHA-256:</span> <code class="break-all font-mono">{RELEASE_SHA256}</code>
 				</div>

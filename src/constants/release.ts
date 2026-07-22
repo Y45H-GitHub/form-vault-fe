@@ -5,11 +5,11 @@
 
 export const RELEASE_VERSION = 'v0.2.0';
 
-// NOT LIVE YET: points at the first Retrivo-branded release (backend package.json was bumped to
-// 0.2.0 to avoid colliding with the old FormVault-Setup-0.1.0.exe asset still sitting on the
-// renamed repo's v0.1.0 release). This 404s until that v0.2.0 release is actually built and
-// published with `npm run build -- --publish always`. Don't deploy this site before then, and
-// update RELEASE_SHA256 below from the real uploaded asset once it exists.
+export const GITHUB_OWNER = 'Y45H-GitHub';
+export const GITHUB_REPO = 'retrivo';
+
+/** Don't show the download counter until it's a real signal instead of a small, discouraging number. */
+export const MIN_DOWNLOADS_TO_SHOW = 0;
 
 /** Direct download URL for the Windows installer. */
 export const RELEASE_DOWNLOAD_URL =
@@ -19,11 +19,11 @@ export const RELEASE_DOWNLOAD_URL =
 export const RELEASES_PAGE_URL =
   'https://github.com/Y45H-GitHub/retrivo/releases';
 
-/** Installer size shown in UI copy (rounded from 87 189 763 bytes). */
+/** Installer size shown in UI copy (rounded from 87 177 964 bytes, the real v0.2.0 asset). */
 export const RELEASE_SIZE_MB = '83 MB';
 
 /** Minimum Windows version. */
 export const MIN_WINDOWS = 'Windows 10 (build 1809) or later';
 
-/** SHA-256 of Retrivo-Setup-0.2.0.exe, from the GitHub release asset - lets users verify the download. PLACEHOLDER: still the old 0.1.0 asset's hash, replace once 0.2.0 ships. */
-export const RELEASE_SHA256 = 'dac8f2dda4f7b8c746891f1f6e47946e5cf26d27231738f2ad9a7d478e8dc0d7';
+/** SHA-256 of Retrivo-Setup-0.2.0.exe, from the GitHub release asset - lets users verify the download. */
+export const RELEASE_SHA256 = 'da986c9ff3804994376d2a627e4297ac233c6f5608e9b110318c8ce1f9881e30';

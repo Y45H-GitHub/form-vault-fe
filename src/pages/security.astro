@@ -13,6 +13,10 @@ const points = [
 		body: 'Field values are encrypted at rest using safeStorage, Electron’s wrapper around your OS credential store - DPAPI on Windows. The key is scoped to your machine and your Windows account, and it never lives inside the app itself.'
 	},
 	{
+		title: 'Optional PIN lock for shared machines.',
+		body: 'Encryption protects your data at rest, but by default anyone signed into your Windows account could still open Retrivo and see it unlocked. Settings → Security lets you require a PIN, with auto-lock after 15 minutes idle and a lockout after repeated wrong attempts.'
+	},
+	{
 		title: 'Open source. Inspect it, don’t just trust it.',
 		body: 'The full source is on GitHub under the MIT license. Read the encryption code, watch the network traffic yourself, or disconnect your wifi entirely - Retrivo works exactly the same offline, because it was never talking to anything.'
 	},

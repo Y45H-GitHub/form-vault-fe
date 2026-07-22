@@ -5,7 +5,10 @@ import PopupMockup from '../components/PopupMockup.astro';
 import PopupArt from '../components/PopupMockup.astro';
 import VaultArt from '../components/VaultManagerMockup.astro';
 import CodeExpansionDemo from '../components/CodeExpansionDemo.astro';
-import { RELEASE_VERSION, RELEASE_SIZE_MB } from '../constants/release';
+import { RELEASE_VERSION, RELEASE_SIZE_MB, GITHUB_OWNER, GITHUB_REPO, MIN_DOWNLOADS_TO_SHOW } from '../constants/release';
+import { getInstallerDownloadCount } from '../lib/githubDownloads';
+
+const downloadCount = await getInstallerDownloadCount(GITHUB_OWNER, GITHUB_REPO);
 
 const highlights = [
 	{
@@ -73,9 +76,18 @@ const steps = [
 	<section class="relative">
 		<div class="pointer-events-none absolute inset-0 grid-bg opacity-60" aria-hidden="true"></div>
 		<div class="mx-auto max-w-4xl px-6 pt-24 pb-16 text-center md:pt-32">
-			<div class="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 text-[11px] text-muted-foreground">
-				<span class="h-1.5 w-1.5 rounded-full bg-primary"></span>
-				Windows &middot; {RELEASE_VERSION} &middot; Local-first &middot; Open source
+			<div class="mb-6 flex flex-wrap items-center justify-center gap-2">
+				<div class="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 text-[11px] text-muted-foreground">
+					<span class="h-1.5 w-1.5 rounded-full bg-primary"></span>
+					Windows &middot; {RELEASE_VERSION} &middot; Local-first &middot; Open source
+				</div>
+				{
+					downloadCount !== null && downloadCount >= MIN_DOWNLOADS_TO_SHOW && (
+						<div class="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 text-[11px] text-muted-foreground">
+							Downloads: {downloadCount.toLocaleString()}
+						</div>
+					)
+				}
 			</div>
 			<h1 class="text-4xl font-semibold leading-[1.05] tracking-tight text-foreground md:text-6xl">
 				One shortcut.<br />Everything you retype.
